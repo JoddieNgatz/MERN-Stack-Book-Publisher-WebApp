@@ -29,5 +29,5 @@ On the backend, you'll probably have installed Express for your Node runtime, Mo
 # Backend notes
 -mkdir <folder name> --create folder
 -npm init  -initialize node js app with package.json file, follow prompts and give details
--install modules
+-install modules express, mongoose, cors
 npm install express mongoose body-parser cors --save
