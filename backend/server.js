@@ -1,13 +1,30 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const Port = 8080;
-app.use(express.json());//express.json middleware to convert every request to json
+const Port = process.env.PORT || 8080;//process.env.PORT || 8080 means: whatever is in the environment variable PORT, or 8080 if there's nothing there.
 
-app.listen(port, () => {
-    console.log(`Server started on port: `+Port);
+// Restricting allowed hosts
+// https://medium.com/zero-equals-false/using-cors-in-express-cac7e29b005b
+var corsOptions = {
+    origin: 'http://localhost:8080'
+}
+
+app.use(cors(corsOptions));
+//app.use(express.json());//express.json middleware to convert every request to json
+//parse requests of content-type json '- json to be used'
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));//basically tells the system whether you want to use a simple algorithm for shallow parsing (i.e. false) or complex algorithm for deep parsing that can deal with nested objects (i.e. true).
+
+app.listen(Port, () => {
+    console.log(`Server started on port: {$Port}`+Port);
+});
+
+app.get('/', (req, res) => {
+    res.json({message:'Test landing endpoint for book publisher app'});
+    
 });
 
 app.get('/books', (req, res) => {
@@ -22,6 +39,5 @@ app.post('/book/:id', (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
-
-
 });
+
