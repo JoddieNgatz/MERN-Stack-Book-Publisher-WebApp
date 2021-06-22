@@ -1,7 +1,6 @@
 module.exports = app => {
-    app.use('/api/books', router);
     
-    const router = express.Router();
+    const router = require('express').Router();
     //Create new book
     router.post('/', (books.create));
 
@@ -24,6 +23,7 @@ module.exports = app => {
     router.post('/', (books.deleteAll));
 
      
+    app.use('/api/books', router);
  
     
 }
