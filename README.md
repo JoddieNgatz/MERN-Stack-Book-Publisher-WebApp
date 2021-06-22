@@ -41,7 +41,7 @@ npm install express mongoose body-parser cors --save
 --In your Express code you require the driver, connect to the database, and then perform create, read, update, and delete (CRUD) operations.
  # Configure MongoDB database
  -db.config.js give url to mongodb and index.js to use
- # Define Mongoose
+ # Define Mongoose (OCM)
 const dbConfig = require("../config/db.config.js");
 
 const mongoose = require("mongoose");
@@ -57,7 +57,7 @@ module.exports = db;
 ~~  THEN   ~~
 
  Call connect() method in server.js
- 
+
  const db = require("./app/models");
 db.mongoose
   .connect(db.url, {
@@ -71,3 +71,26 @@ db.mongoose
     console.log("Cannot connect to the database!", err);
     process.exit();
   });
+
+  # Mongoose Model
+  https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
+  see books.model.js in  backend\app\models\books.model.js
+
+  ~~uses schema and Model~~
+  Models are created from schemas using the 
+  mongoose.model() method:
+  first argument is name of collection, Mongoose will create the database collection for the above model SomeModel above), and the second argument is the schema you want to use in creating the model.
+  Once you've defined your model classes you can use them to create, update, or delete records, and run queries to get all records or particular subsets of records.
+  const schema = mongoose.Schema;
+  var sSchema = new schema({a:string, b:Date});
+  var mModel = mongoose.model('model',sSchema); 
+
+  or 
+
+      const Book = mongoose.model('Book',//name of collection books
+        mongoose.schema({
+            title: String,
+            description: String,
+            author: String,
+            publisher: String
+        }, { timestamps: true }));

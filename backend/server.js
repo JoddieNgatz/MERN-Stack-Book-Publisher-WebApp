@@ -27,13 +27,7 @@ app.get('/', (req, res) => {
     
 });
 
-app.get('/books', (req, res) => {
-    res.status(200).send({
-        book: '',
-        id: 123,
-        title: 'Express'
-    });
-})
+
 
 app.post('/book/:id', (req, res) => {
     const { id } = req.params;
@@ -41,3 +35,11 @@ app.post('/book/:id', (req, res) => {
 
 });
 
+//connect method to db
+const db = require('./app/models');
+db.mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => { console.log('connected to database'); }).catch(err => { console.log('problem connecting to db', err); process.exit; });
+
+app.get('/books', (req, res) => {
+    res.status(200).send({ 
+    });
+})

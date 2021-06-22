@@ -22,5 +22,8 @@
     "express": "^4.17.1",
     "mongodb": "^3.6.8",
     "mongoose": "^5.12.14"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0"
   }
 }
