@@ -28,3 +28,8 @@ db.mongoose
     console.log("Cannot connect to the database!", err);
     process.exit();
   });
+
+  # Steps
+  1. add configuration for MongoDB database & Mongoose.
+  2. create a Mongoose Model, 
+  3. write a controller and define routes for handling all CRUD operations.
