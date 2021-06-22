@@ -76,3 +76,4 @@ typings/
 .fusebox/
 
 #db.config.js
+./config/db.config.js
