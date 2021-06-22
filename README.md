@@ -94,3 +94,6 @@ db.mongoose
             author: String,
             publisher: String
         }, { timestamps: true }));
+
+# Create Controller
+in controller.js i will create CRUD with CRUD Functions given by Mongoose model

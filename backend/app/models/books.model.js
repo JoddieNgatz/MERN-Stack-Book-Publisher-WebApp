@@ -6,7 +6,7 @@ module.exports = mongoose => {
             title: String,
             description: String,
             author: String,
-            publisher: String
+            publisher: Boolean
         }, { timestamps: true }));
     
     schema.method('toJSON', () => {
