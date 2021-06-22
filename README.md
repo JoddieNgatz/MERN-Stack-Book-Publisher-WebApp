@@ -3,7 +3,7 @@
 
 # Requirements
 -Admin can add/create, Retrieve, updates, delete (CRUD)
-- Books have id, title of book, description of Book,Published Status
+- Books have id, title of book,author, description of Book,Published Status
 -Search Feature
 -Authentication for admin and new user
 
@@ -37,3 +37,37 @@ npm install express mongoose body-parser cors --save
  ~~Server.js line 8-10 If you want to restrict AJAX access to a single origin, you can use the origin option:
  ~~Bodyparser helps parse for json
  ~~cors - to enable cors
+-setup mongodb = npm install mongodb
+--In your Express code you require the driver, connect to the database, and then perform create, read, update, and delete (CRUD) operations.
+ # Configure MongoDB database
+ -db.config.js give url to mongodb and index.js to use
+ # Define Mongoose
+const dbConfig = require("../config/db.config.js");
+
+const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+
+const db = {};
+db.mongoose = mongoose;
+db.url = dbConfig.url;
+db.books = require("./books.model.js")(mongoose);
+
+module.exports = db;
+ 
+~~  THEN   ~~
+
+ Call connect() method in server.js
+ 
+ const db = require("./app/models");
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Connected to the database!");
+  })
+  .catch(err => {
+    console.log("Cannot connect to the database!", err);
+    process.exit();
+  });
