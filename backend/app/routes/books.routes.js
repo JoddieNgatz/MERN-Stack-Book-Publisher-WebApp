@@ -1,4 +1,6 @@
 module.exports = app => {
+    //connect controller for books operations
+    const books = require('../controller/books.controller.js')
     
     const router = require('express').Router();
     //Create new book
