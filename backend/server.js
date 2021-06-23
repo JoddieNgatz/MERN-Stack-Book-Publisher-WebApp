@@ -4,7 +4,11 @@ const cors = require('cors');
 
 
 const app = express();
-require('./app/routes/books.routes')(app);
+
+//connect method to db
+const db = require('./app/models');
+db.mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => { console.log('connected to database'); }).catch(err => { console.log('problem connecting to db', err); process.exit; });
+
 
 const Port = process.env.PORT || 8080;//process.env.PORT || 8080 means: whatever is in the environment variable PORT, or 8080 if there's nothing there.
 
@@ -22,6 +26,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));//basically tells the system whether you want to use a simple algorithm for shallow parsing (i.e. false) or complex algorithm for deep parsing that can deal with nested objects (i.e. true).
 
+require('./app/routes/books.routes')(app);
 
 app.listen(Port, () => {
     console.log(`Server started on port: {$Port}`+Port);
@@ -45,8 +50,3 @@ app.get('/', (req, res) => {
 //     res.status(200).send({ 
 //     });
 // })
-
-//connect method to db
-const db = require('./app/models');
-db.mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => { console.log('connected to database'); }).catch(err => { console.log('problem connecting to db', err); process.exit; });
-

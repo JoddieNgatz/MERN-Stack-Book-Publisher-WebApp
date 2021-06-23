@@ -1,22 +1,23 @@
-const { request } = require('express');
-const { books } = require('../models');
+//const { request } = require('express');
+//const { books } = require('../models');
 const db = require('../models');
 const Book = db.books;
 
 //Create and Save new Book
 exports.create = (req, res) => {
   
-    const { body_T } = req.body.title;
+    const body_T = req.body.title;
     if (!body_T) {
         res.status(418).send({ message: 'Send Content' });
         return;
     }
     //create book
-    const book = new book({
+    const books = new Book({
         title: req.body.title,
         description: req.body.description,
         author: req.body.author,
-        published: request.body.published ? req.body.published : false
+        published: request.body.published
+        //published: request.body.published ? req.body.published : false
     });
 
     //save books
@@ -32,7 +33,7 @@ exports.create = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    books.findById(id).then(data => {
+    Book.findById(id).then(data => {
         if (!data)
           res.status(404).send({ message: "Book not found with id " + id });
         else res.send(data);
@@ -51,7 +52,7 @@ exports.findAll = (req, res) => {
 
     const id = req.params.id;
 
-    books.find(condition).then(data => {
+    Book.find(condition).then(data => {
         if (!data)
           res.status(404).send({ message: "Book not found with id " + id });
         else res.send(data);
