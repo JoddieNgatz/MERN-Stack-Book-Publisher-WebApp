@@ -12,8 +12,8 @@ module.exports = app => {
        //find/retireve all book
     router.get('/', (books.findAll));
     
-       //find published book
-    router.get('/published', (books.findAllPublished));
+   //     //find published book
+   //  router.get('/published', (books.findAllPublished));
     
        //update book
     router.put('/:id', (books.update));

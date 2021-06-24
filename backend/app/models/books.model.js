@@ -7,8 +7,8 @@ module.exports = mongoose => {
     var bookSchema = new Schema({
         title: String,
         description: String,
-        author: String,
-        published: Boolean
+        author: String
+       // published: Boolean
     }, { timestamps: true });
     
     const Book = mongoose.model('Book', bookSchema);//name of collection books

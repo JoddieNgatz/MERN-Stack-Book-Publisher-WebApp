@@ -15,9 +15,8 @@ exports.create = (req, res) => {
     const books = new Book({
         title: req.body.title,
         description: req.body.description,
-        author: req.body.author,
-        published: request.body.published
-        //published: request.body.published ? req.body.published : false
+        author: req.body.author
+       // published: request.body.published
     });
 
     //save books
@@ -125,15 +124,15 @@ exports.deleteAll = (req, res) => {
   })
 };
 
-//Find all published books
-exports.findAllPublished = (req, res) => {
-    books.find({ published: true }).then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: 'error problem' + err
-        });
+// //Find all published books
+// exports.findAllPublished = (req, res) => {
+//     books.find({ published: true }).then(data => {
+//         res.send(data);
+//     }).catch(err => {
+//         res.status(500).send({
+//             message: 'error problem' + err
+//         });
    
-});
+// });
 
-};
+// };
