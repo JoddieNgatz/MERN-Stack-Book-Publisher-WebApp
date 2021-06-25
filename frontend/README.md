@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Steps
+1. install bootstrap
+   npm install bootstrap & import in app.js
+2. add react router for redux
+   npm install react-router-dom
+   app.js / 
+import { BrowserRouter as Router } from "react-router-dom";
+3. Added Nav Bar
