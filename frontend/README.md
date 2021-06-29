@@ -82,3 +82,5 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 4. npm install axios 
 Initialize axios (axiosInitialize.js) to communicate with backend api. https://www.digitalocean.com/community/tutorials/react-axios-react
   ~~Many projects on the web need to interface with a REST API at some stage in their development. Axios is a lightweight HTTP client based on the $http service within Angular.js v1.x and is similar to the native JavaScript Fetch API.~~
+  5.Begin CRUD actions 
+  
