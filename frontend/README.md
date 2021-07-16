@@ -71,6 +71,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Steps
+Redux is made up of actions, reducers, state and the store. Each thing does one specific task.
+Dispatch is a function given to us by Redux, and lets us trigger actions.
+
+The action contains a type, and a payload. The type is typically just a string with the name of the action. The payload contains data we need to know about. For example, we can’t deposit any money without knowing the amount
+
+The store receives the action, and is in charge of holding the state. Think of it like a database, in a sense that it holds all our data in one place
+
+The store is also in charge of updating the state based on the action and the current state which it does by using reducers.
+
+A reducer sounds fancy but its just a function that takes the current state from the store, and the action. It combines things together and returns the new state.
+it takes the old state and the action, does some work, and spits out the new state.
+
+The store then saves this new state which is returned from the reducer and passes the state to the components. This causes them to re-render, displaying the new data.
 1. install bootstrap
    npm install bootstrap & import in app.js
 2. add react router for redux
