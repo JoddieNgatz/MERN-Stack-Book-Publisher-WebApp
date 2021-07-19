@@ -5,7 +5,7 @@ import {
     UPDATE_BOOK,
     DELETE_ALL_BOOKS,
     DELETE_BOOK,
-} from "./actions";
+} from "../actions/actions";
 
 import BookService from "../services/book.service";
 
@@ -57,7 +57,7 @@ export const updateBooks = ( id, bookdata) => async (dispatch) => {
 
 
 
-export const deleteBooks = ( ) => async (dispatch) => {
+export const deleteAllBooks = ( ) => async (dispatch) => {
     try {
         const res = await BookService.deleteAll();
 
@@ -89,7 +89,7 @@ export const deleteBook = (id ) => async (dispatch) => {
 };
 
 
-export const findBook = (title ) => async (dispatch) => {
+export const findBooks = (title ) => async (dispatch) => {
     try {
         const res = await BookService.find(title);
 

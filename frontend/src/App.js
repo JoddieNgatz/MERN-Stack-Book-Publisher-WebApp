@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import {AddBooks} from './components/add-book.component';
-import { books } from './components/book.component';
-import { booklists } from './components/books-list.component';
+import  AddBook from './components/add-book.component';
+import  books  from './components/book.component';
+import  booklists  from './components/books-list.component';
 
 
 class App extends Component { //class component to hold state
@@ -27,7 +27,7 @@ class App extends Component { //class component to hold state
           <div>
             <Switch>  {/*switch object */}
               <Route exact path={["/", "/books"]} component={booklists} />
-              <Route exact path="/add" component={AddBooks} />
+              <Route exact path="/add" component={AddBook} />
               <Route path="/books/:id" component={books} />
           </Switch> 
          

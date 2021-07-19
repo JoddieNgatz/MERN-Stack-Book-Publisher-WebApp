@@ -4,6 +4,7 @@ import books from './books';
 
 export default combineReducers({
     books,
+   // auth
 });
-
-//only have a single store in redux we use reducer composition
+//https://medium.com/@mange_vibration/reducer-composition-with-higher-order-reducers-35c3977ed08f
+//only have a single store in redux we use reducer composition instead of many stores to split data handling logic

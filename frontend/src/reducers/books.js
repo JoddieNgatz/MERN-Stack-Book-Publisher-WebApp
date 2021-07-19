@@ -4,7 +4,7 @@ import {
     UPDATE_BOOK,
     DELETE_BOOK,
     DELETE_ALL_BOOKS
-} from "../actions/books";
+} from "../actions/actions";
 
 const initialState = [];
 
@@ -12,6 +12,10 @@ function bookreducer(books = initialState, action) {
     const { type, payload } = action;
 
     switch (type) {
+        // case AUTH:
+            
+        //     return [...books, payload];
+        
         case CREATE_BOOK:
             
             return [...books, payload];
