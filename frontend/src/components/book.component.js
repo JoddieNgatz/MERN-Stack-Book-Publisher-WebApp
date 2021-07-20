@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateBook, deleteBook } from "../actions/books";
+import { updateBooks, deleteBook } from "../actions/books";
 import BookDataService from "../services/book.service";
 
 class Book extends Component{
@@ -119,12 +119,84 @@ class Book extends Component{
         const { currentBook } = this.state;
     
         return (
-          <div></div>
+          <div>
+          {currentBook ? (
+            <div className="edit-form">
+              <h4>Book</h4>
+              <form>
+                <div className="form-group">
+                  <label htmlFor="title">Title</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="title"
+                    value={currentBook.title}
+                    onChange={this.onChangeTitle}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="description">Description</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="description"
+                    value={currentBook.description}
+                    onChange={this.onChangeDescription}
+                  />
+                </div>
+  
+                <div className="form-group">
+                  <label>
+                    <strong>Status:</strong>
+                  </label>
+                  {currentBook.published ? "Published" : "Pending"}
+                </div>
+              </form>
+  
+              {currentBook.published ? (
+                <button
+                  className="badge badge-primary mr-2"
+                  onClick={() => this.updateStatus(false)}
+                >
+                  UnPublish
+                </button>
+              ) : (
+                <button
+                  className="badge badge-primary mr-2"
+                  onClick={() => this.updateStatus(true)}
+                >
+                  Publish
+                </button>
+              )}
+  
+              <button
+                className="badge badge-danger mr-2"
+                onClick={this.removeBook}
+              >
+                Delete
+              </button>
+  
+              <button
+                type="submit"
+                className="badge badge-success"
+                onClick={this.updateContent}
+              >
+                Update
+              </button>
+              <p>{this.state.message}</p>
+            </div>
+          ) : (
+            <div>
+              <br />
+              <p>Please click on a Book...</p>
+            </div>
+          )}
+        </div>
         );
       }
     }
     
 
     
-    export default connect(null, { updateBook, deleteBook })(Book);
+    export default connect(null, { updateBooks, deleteBook })(Book);
 

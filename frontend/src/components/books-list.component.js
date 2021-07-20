@@ -8,7 +8,7 @@ class BooksList extends Component{
         super(props);
         this.onChangeSearchTitle = this.onChangeSearchTitle.bind(this);
         this.refreshData = this.refreshData.bind(this);
-        this.setActiveBook = this.setActiveBooks.bind(this);
+        this.setActiveBook = this.setActiveBook.bind(this);
         this.findByTitle = this.findByTitle.bind(this);
         this.removeAllBooks = this.removeAllBooks.bind(this);
     
