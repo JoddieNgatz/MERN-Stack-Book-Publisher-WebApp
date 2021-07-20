@@ -14,9 +14,9 @@ class App extends Component { //class component to hold state
     return (
       <Router>
         <div className="App">
-          <div class='topnav'>
+          <div className='topnav'>
             <nav>
-              <Link class="active" to="#home">Home</Link>
+              <Link className="active" to="#home">Home</Link>
               <Link to={"/books"}>Books</Link>
               <Link to={"/add"}>Add Book</Link>
               <Link to={"/about"}>About</Link>

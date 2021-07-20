@@ -27,7 +27,7 @@ export const createBook = ( title, description ) => async (dispatch) => {
 
 export const retrieveBooks = ( ) => async (dispatch) => {
     try {
-        const res = await BookService.getAll();
+        const res = await BookService.getAllBooks();
 
         dispatch({
             type: RETRIEVE_BOOKS,
