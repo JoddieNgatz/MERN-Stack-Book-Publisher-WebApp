@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { retrieveBooks, findBooks, deleteAllBooks } from "../actions/books";
 import { Link } from "react-router-dom";
+import './book-list.css';
 
 class BooksList extends Component{
     constructor(props) {
@@ -53,7 +54,10 @@ class BooksList extends Component{
           .catch((e) => {
             console.log(e);
           });
-      }
+  }
+  displayBooks() {
+     
+   }
     
       findByTitle() {
         this.refreshData();
