@@ -25,7 +25,11 @@ class AddBook extends Component {
                 title: e.target.value,
             });
         }
-        
+      //   onChangeAuthor(e) {
+      //     this.setState({
+      //         author: e.target.value,
+      //     });
+      // }
         onChangeDescription(e) {
             this.setState({
                 description: e.target.value,

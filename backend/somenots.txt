@@ -1,0 +1,123 @@
+    // let username = { username: req.params.username };
+        let username =  req.params.username;
+        
+        console.log(username);
+
+
+        profile.findOne({username}).then(data => {
+            if (!data)
+              res.status(404).send({ message: "Cannot get profile with username: " + username });
+            else res.send(data);
+          })
+          .catch(err => {
+            res
+              .status(500)
+              .send({ message: err+  "  Error finding profile with username:" + username });
+          });
+
+
+                 // profile.find({
+        //      username: req.body.username
+        //  }).exec((err, user) => {
+        //      if (err) {
+        //          res.status(500), json({ message: err });
+        //          return;
+        //      }
+        //      if (!user) {
+        //          res.status(404).json({ message: "User Not Found. Register" })
+        //      }
+ 
+        //      res.status(200).json({
+        //          username: profile.username,
+        //          age: profile.age,
+        //          sex: pofile.sex,
+        //          alcoholConsumption: profile.alcoholConsumption,
+        //          alergies: profile.alergies,
+        //          medicalBackground: profile.medicalBackground,
+        //          pregnant: profile.pregnant,
+        //      });
+        //  });
+ 
+
+
+
+    
+// /**
+//  * @method - POST
+//  * @param - /register
+//  * @description - User can register passing json username,email,password
+//  */
+    // app.post("/profile/", (req, res) => {
+    //     const body = req.body.email;
+    //     if (!body) {
+    //         res.status(404).json({ message: "Kindly fill in details username, email and password" });
+    //     }
+    //     else {
+    //     const nUser = new usr({
+    //         "username": req.body.username, //will use for userId
+    //         "email": req.body.email,
+    //         "password": req.body.password,
+    //     });
+    //     nUser.save((err) => {
+    //         if (err) {
+    //             res.status(500).json({ err: err });
+    //             return;
+    //         } else {
+    //             res.status(200).json({ message: "User registered Successfully!" });
+    //         }
+    //     });
+    // }
+    // });
+
+
+     
+    //    usr.findOne({
+    //         username: req.body.username
+    //     }).exec((err, user) => {
+    //         if (err) {
+    //             res.status(500), json({ message: err });
+    //             return;
+    //         }
+    //         if (!user) {
+    //             res.status(404).json({ message: "User Not Found. Register" })
+    //         }
+    //         else {
+                
+    //         }
+
+    //         res.status(200).json({
+    //             name: profile.username,
+    //             email: profile.email,
+    //             username: profile.username,
+    //             age: profile.age,
+    //             sex: pofile.sex,
+    //             alcoholConsumption: profile.AlcoholConsumption,
+    //             alergies: profile.Alergies,
+    //             medicalBackground: profile.MedicalBackground,
+    //             Pregnant: profile.pregnant,
+    //         });
+        // })
+
+
+
+        
+        //  profile.find({ username }, function (err, profile) {
+            
+        //      if (err) {
+        //         res.status(500).json({ message: err });
+        //     }
+        //     if (!profile) {
+        //         res.status(404).json({ message: "Profile data Not Found.Add data" })
+        //     }
+        //     res.status(200).json(profile);
+        //     res.status(200).json({
+        //         username: profile.username,
+        //         age: profile.age,
+        //         sex: pofile.sex,
+        //         alcoholConsumption: profile.alcoholConsumption,
+        //         alergies: profile.alergies,
+        //         medicalBackground: profile.medicalBackground,
+        //         pregnant: profile.pregnant,
+        //     });
+        //  });
+       

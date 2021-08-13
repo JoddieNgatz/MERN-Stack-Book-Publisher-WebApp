@@ -9,9 +9,8 @@ const app = express();
 const db = require('./app/models');
 db.mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => { console.log('connected to database'); }).catch(err => { console.log('problem connecting to db', err); process.exit; });
 
-
 app.use(express.json());//express.json middleware to convert every request to json
-//parse requests of content-type json '- json to be used'
+//parse requests of  json '- json to be used'
 
 const Port = process.env.PORT || 8080;//process.env.PORT || 8080 means: whatever is in the environment variable PORT, or 8080 if there's nothing there.
 
@@ -21,23 +20,20 @@ const Port = process.env.PORT || 8080;//process.env.PORT || 8080 means: whatever
 var corsOptions = {
     origin: 'http://localhost:8080'
 }
-
-app.use(cors(corsOptions));
-//app.use(bodyParser.json());
-
-app.use(express.urlencoded({ extended: true }));//basically tells the system whether you want to use a simple algorithm for shallow parsing (i.e. false) or complex algorithm for deep parsing that can deal with nested objects (i.e. true).
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
     res.header('Access-Control-Expose-Headers', 'Content-Length');
     res.header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type, X-Requested-With, Range');
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200);
-    } else {
-        return next();
-    }
+    next();
 });
+app.use(cors());
+app.use(cors(corsOptions));
+//app.use(bodyParser.json());
+
+app.use(express.urlencoded({ extended: true }));//basically tells the system whether you want to use a simple algorithm for shallow parsing (i.e. false) or complex algorithm for deep parsing that can deal with nested objects (i.e. true).
+
 
 require('./app/routes/books.routes')(app);
 

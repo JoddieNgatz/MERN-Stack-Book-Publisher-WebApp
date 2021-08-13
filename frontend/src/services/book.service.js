@@ -11,6 +11,7 @@ class BookService{
     }
     
     create(bookdata) {
+        console.log(bookdata);
         return requests.post("/books",bookdata);
     }
     

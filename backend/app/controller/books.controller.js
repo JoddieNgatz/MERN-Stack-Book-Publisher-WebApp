@@ -5,7 +5,7 @@ const Book = db.books;
 
 //Create and Save new Book
 exports.create = (req, res) => {
-  
+    console.log(req);
     const body_T = req.body.title;
     if (!body_T) {
         res.status(418).send({ message: 'Send Content' });
