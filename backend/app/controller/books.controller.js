@@ -21,8 +21,8 @@ exports.create = (req, res) => {
 
     //save books
     books.save(books).then((data) => {
-        res.send((data));
-        
+        res.setHeader("Access-Control-Allow-Origin", "*").send((data));
+        console.log(data);
     }).catch((err) => {
         res.status(500).send({message: err+ 'Error Creating try again'});
     });
@@ -40,7 +40,7 @@ exports.findOne = (req, res) => {
       .catch(err => {
         res
           .status(500)
-          .send({ message: err+ "Error retrieving Book with id=" + id });
+        .send({ message: err+ "Error retrieving Book with id=" + id });
       });
 };
 
@@ -58,8 +58,7 @@ exports.findAll = (req, res) => {
       })
       .catch(err => {
         res
-          .status(500)
-          .send({ message: err+ "Error retrieving Book with id=" + id });
+          .status(500).send({ message: err+ "Error retrieving Book with id=" + id });
       });
 };
 

@@ -18,7 +18,7 @@ const Port = process.env.PORT || 8080;//process.env.PORT || 8080 means: whatever
 // Restricting allowed hosts
 // https://medium.com/zero-equals-false/using-cors-in-express-cac7e29b005b
 var corsOptions = {
-    origin: 'http://localhost:8080'
+    origin: 'http://localhost:8081'
 }
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -43,7 +43,7 @@ app.listen(Port, () => {
 
 
 app.get('/', (req, res) => {
-    res.json({message:'Test landing endpoint for book publisher app'});
+    res.setHeader("Access-Control-Allow-Origin", "*").json({message:'Test landing endpoint for book publisher app'});
     
 });
 

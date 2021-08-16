@@ -4,7 +4,7 @@ module.exports = app => {
     console.log('in routes')
     const router = require('express').Router();
     //Create new book
-    router.post('/', (books.create));
+    router.post('/books', (books.create));
 
        //find/retireve a book
     router.get('/id', (books.findOne));
